@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+Nombre: <input type="text" id="nombre">
+Mensaje: <input type="text" id="mensaje">
+<button onclick="sendMessage()">Enviar</button>
+<div id="e"></div>
+<script>
+let socket = new WebSocket("ws://localhost:8080/chat");
+socket.onmessage = function(event){
+	document.getElementById("e").innerHTML = event.data
+}
+
+function sendMessage(){
+	socket.send(document.getElementById("mensaje").value);
+	document.getElementById("mensaje").value = "";
+}
+</script>
+</body>
+</html>
