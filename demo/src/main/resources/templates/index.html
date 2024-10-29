@@ -4,9 +4,15 @@
 </head>
 <body>
 Nombre: <input type="text" id="nombre">
+<br>
+<br>
 Mensaje: <input type="text" id="mensaje">
+<br>
+<br>
 <button onclick="sendMessage()">Enviar</button>
-<div id="e"></div>
+<br>
+<br>
+<div id="e" style="border:solid 1px black;"></div>
 <script>
 let socket = new WebSocket("ws://localhost:8080/chat");
 socket.onmessage = function(event){
